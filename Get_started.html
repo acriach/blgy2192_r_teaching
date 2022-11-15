@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Get started</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Learning R</a>
+</li>
+<li>
+  <a href="Get_started.html">Get started</a>
+</li>
+<li>
+  <a href="Working_in_R.html">Working in R</a>
+</li>
+<li>
+  <a href="ggplot.html">ggplot</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Get started</h1>
+
+</div>
+
+
+<p><br></p>
+<div id="this-is-r" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> This is R</h1>
+<div id="opening-r-through-notable" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Opening R through
+Notable</h2>
+<p>Go to the Minerva site for BLGY2192 and the <code>Learning R</code>
+folder. Click on <code>Notable Copmputational Notebooks</code> (similar
+to Apps Anywhere).<br />
+Under <code>Please select a personal notebook server</code> make sure
+<code>RStudio</code> is chosen.</p>
+<p><br></p>
+<div class="darkorchidbox">
+<div class="center">
+<p><strong>Tip: Using R after this session</strong></p>
+</div>
+<p>When using a university computer in a cluster, use R and RStudio
+through AppsAnywhere.</p>
+<ul>
+<li>Click the AppsAnywhere icon, scroll down to “Cran R” and click
+launch.</li>
+<li>Once R has opened and downloaded onto the computer you can close
+it.</li>
+<li>Now go back into Apps Anywhere to find RStudio and launch that.</li>
+</ul>
+<p><br></p>
+<p>If you only downloaded RStudio onto your computer it would not work.
+RStudio needs R installed to make it work.</p>
+<p>You can try to download R and RStudio onto your own laptop in your
+own time using these links.</p>
+<p><kbd><a href="https://www.r-project.org/">Download and install the
+latest version of R</a></kbd></p>
+<p><kbd><a href="https://www.rstudio.com/">Download and install
+RStudio</a></kbd></p>
+</div>
+<p><br></p>
+</div>
+<div id="basic-layout" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Basic Layout</h2>
+<p>When you first open RStudio, you will see three panels:</p>
+<ul>
+<li>The interactive R console (left)</li>
+<li>Environment/History (tabbed in upper right)</li>
+<li>Files/Plots/Packages/Help/Viewer (tabbed in lower right)</li>
+</ul>
+<p><img src="images/RStudio_screenshot.png" title="A screenshot of Rstudio showing eleven menus at the top left. One panel covers the left half with text about the R software. The right is divided into two panels with text saying that the environment is empty in the top panel and a display of the current file directory in the bottom panel." alt="A screenshot of Rstudio showing eleven menus at the top left. One panel covers the left half with text about the R software. The right is divided into two panels with text saying that the environment is empty in the top panel and a display of the current file directory in the bottom panel."  /></p>
+<p>Once you open files, such as R scripts another panel will open in the
+top left.</p>
+<ul>
+<li>Click on the white square with the plus in green icon top left.</li>
+</ul>
+<p><img src="images/RStudio_screenshot_script.png" title="Two zoomed in screenshots of the top left menus in RStudio. The first screenshot shows a black rectangle highlighting an icon which is a white square with a plus inside a green circle. The second screenshot shows a black rectangle highlighting a menu item that reads R Script followed by the associated keyboard shortcut, Ctrl + Shift + N." alt="Two zoomed in screenshots of the top left menus in RStudio. The first screenshot shows a black rectangle highlighting an icon which is a white square with a plus inside a green circle. The second screenshot shows a black rectangle highlighting a menu item that reads R Script followed by the associated keyboard shortcut, Ctrl + Shift + N."  /></p>
+<p>R works by you typing commands, telling R to run them, and then R
+returns a result.</p>
+<p>All the commands we type in the .R file script can be saved for later
+and run again in R.</p>
+<p><br></p>
+</div>
+<div id="working-in-a-script" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Working in a
+script</h2>
+<p>The simplest thing you can do with R is use it as a calculator. Type
+the below into the script we just opened:</p>
+<pre class="r"><code>1 + 100</code></pre>
+<pre><code>[1] 101</code></pre>
+<p>Now run the code in R by pressing the Run command at the top left of
+the script window.</p>
+<p><br></p>
+<div class="darkorchidbox">
+<div class="center">
+<p><strong>Tip: Running segments of your code</strong></p>
+</div>
+<p>To run a line of your script code in the R console, you can<br />
+1. click on the <kbd>Run</kbd> button at the top right of the script,
+or<br />
+2. hit <kbd>Ctrl</kbd>+<kbd>Return</kbd> in Windows or Linux or
+<kbd>⌘</kbd>+<kbd>Return</kbd> on MacOS.<br />
+To run a block of code, select it and then <kbd>Run</kbd>.</p>
+</div>
+<p><br></p>
+<p>R will print out the answer, with a preceding <code>[1]</code>. Don’t
+worry about this. Think of it as merely indicating what line the output
+is on.</p>
+<p>If you type in an incomplete command, for example:</p>
+<pre><code>&gt; 1 +</code></pre>
+<p>R will show a <code>+</code> instead of a <code>&gt;</code>. This
+means it’s waiting for you to complete the command.</p>
+<p>If you want to cancel the command you can hit “Esc” and RStudio will
+give you back the “&gt;” prompt.</p>
+<p><br></p>
+</div>
+<div id="functions" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Functions</h2>
+<p>R has many built in functions (similar to excel functions). To call a
+function, we can type its name, followed by brackets. Anything we type
+inside the brackets is called the function’s arguments:</p>
+<pre class="r"><code>log(15)  # natural logarithm</code></pre>
+<pre><code>[1] 2.70805</code></pre>
+<p>The text after each line of code is called a “comment”. Anything that
+follows after the hash symbol # is ignored by R when it executes
+code.</p>
+<pre class="r"><code>sqrt(25) # square root</code></pre>
+<pre><code>[1] 5</code></pre>
+<p><br></p>
+<div class="darkorchidbox">
+<div class="center">
+<p><strong>Tip</strong></p>
+</div>
+<p>Don’t worry about trying to remember every function in R. You can
+Google them, or if you can remember the start of a function’s name, use
+the tab completion in RStudio.</p>
+</div>
+<p><br></p>
+<p>We can also do comparisons in R:</p>
+<pre class="r"><code>1 == 1  # equality (note two equals signs, read as &quot;is equal to&quot;)</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<pre class="r"><code>1 != 2  # inequality (read as &quot;is not equal to&quot;)</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<pre class="r"><code>1 &gt;= -9 # greater than or equal to</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<p><br></p>
+</div>
+<div id="objects-and-assignment" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Objects and
+assignment</h2>
+<p>We can store values in <strong>objects</strong> using the assignment
+operator <code>&lt;-</code>, like this:</p>
+<pre class="r"><code>x &lt;- 1/40</code></pre>
+<p>Notice that assignment does not print a value. Instead, we stored the
+number for later in the object <code>x</code>. <code>x</code> now
+contains the <strong>value</strong> <code>0.025</code>:</p>
+<pre class="r"><code>x</code></pre>
+<pre><code>[1] 0.025</code></pre>
+<p><br></p>
+<p>Look for the <code>Environment</code> tab in one of the panes of
+RStudio, and you will see that <code>x</code> and its value have
+appeared. Our object <code>x</code> can be used in place of a number in
+any calculation that expects a number:</p>
+<pre class="r"><code>log(x)</code></pre>
+<pre><code>[1] -3.688879</code></pre>
+<p>Objects can be reassigned:</p>
+<pre class="r"><code>x &lt;- 100</code></pre>
+<p><code>x</code> used to contain the value 0.025 and now it has the
+value 100.</p>
+<p>Assignment values can contain the object being assigned to:</p>
+<pre class="r"><code>x &lt;- x + 1 # notice how RStudio updates its description of x on the top right tab
+y &lt;- x * 2</code></pre>
+<p><br></p>
+<p>Object names are not limited to <code>x</code> and <code>y</code>.
+They can contain letters, numbers, underscores and periods. They must
+start with a letter. They cannot start with a number, underscore nor
+contain spaces at all. Different people use different conventions for
+long variable names, these include</p>
+<ul>
+<li>periods.between.words</li>
+<li>underscores_between_words</li>
+<li>camelCaseToSeparateWords</li>
+</ul>
+<p>What you use is up to you, but <strong>be consistent</strong>.</p>
+<p><img src="images/coding_cases.png" title="A wound up snake with mouth open is beside the screaming_snake_case. A spread out snake has snake_case written on it. A camel with headphones on has camelCase written on it with the captial C in the space of it's hump. Colourful letters on a line spell out kebab-case" alt="A wound up snake with mouth open is beside the screaming_snake_case. A spread out snake has snake_case written on it. A camel with headphones on has camelCase written on it with the captial C in the space of it's hump. Colourful letters on a line spell out kebab-case"  />
+Artwork by <span class="citation">@allison_horst</span></p>
+<p><br></p>
+<p>One thing to be aware of is that R is <em>vectorized</em>, meaning
+that objects and functions can have vectors as values. In contrast to
+physics and mathematics, a vector in R describes a set of values in a
+certain order of the same data type. For example:</p>
+<pre class="r"><code>1:5</code></pre>
+<pre><code>[1] 1 2 3 4 5</code></pre>
+<p>Assign this vector to the object <code>x</code></p>
+<pre class="r"><code>x &lt;- 1:5</code></pre>
+<p>This is incredibly powerful as you will see:</p>
+<pre class="r"><code>log(x)</code></pre>
+<pre><code>[1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379</code></pre>
+<p><br></p>
+<blockquote>
+<p><strong>To Do</strong></p>
+<p>Predict what the value of each object will be after each of these
+lines of code?</p>
+<pre class="r"><code>mass &lt;- 40
+age &lt;- 122
+mass &lt;- mass * 2
+age &lt;- age - 20</code></pre>
+</blockquote>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<pre class="r"><code>mass &lt;- 40</code></pre>
+<p>This will give a value of 40 for the object mass</p>
+<pre class="r"><code>age &lt;- 122</code></pre>
+<p>This will give a value of 122 for the object age</p>
+<pre class="r"><code>mass &lt;- mass * 2</code></pre>
+<p>This will multiply the existing value of 40 by 2 to give a new value
+of 80 to the object mass.</p>
+<pre class="r"><code>age &lt;- age - 20</code></pre>
+This will subtract 20 from the existing value of 122 to give a new value
+of 102 to the object age.
+</details>
+<p><br></p>
+<blockquote>
+<p><strong>To Do</strong></p>
+<p>If we ran this code</p>
+<pre class="r"><code>mass &lt;- 40
+age &lt;- 122</code></pre>
+<p>What command would tell us if mass is greater than age?</p>
+</blockquote>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<p>One way of answering this question in R is to use the
+<code>&gt;</code> to set up the following:</p>
+<pre class="r"><code>mass &gt; age</code></pre>
+<pre><code>[1] FALSE</code></pre>
+This should yield a boolean value of TRUE since 80 is greater than 102.
+</details>
+<p><br></p>
+</div>
+<div id="more-on-how-functions-work" class="section level2"
+number="1.6">
+<h2><span class="header-section-number">1.6</span> More on how functions
+work</h2>
+<p>There are lots of useful commands you can use to interact with the R
+session.</p>
+<p><code>ls</code> will list all of the objects and functions stored in
+the global environment (your working R session):</p>
+<pre class="r"><code>ls()</code></pre>
+<p>Note here that we didn’t give any arguments to <code>ls</code>, but
+we still needed to give the parentheses to tell R to call the
+function.</p>
+<p>If we type <code>ls</code> by itself, R prints a bunch of code
+instead of listing objects.</p>
+<pre class="r"><code>ls</code></pre>
+<pre><code>function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
+    pattern, sorted = TRUE) 
+{
+    if (!missing(name)) {
+        pos &lt;- tryCatch(name, error = function(e) e)
+        if (inherits(pos, &quot;error&quot;)) {
+            name &lt;- substitute(name)
+            if (!is.character(name)) 
+                name &lt;- deparse(name)
+            warning(gettextf(&quot;%s converted to character string&quot;, 
+                sQuote(name)), domain = NA)
+            pos &lt;- name
+        }
+    }
+    all.names &lt;- .Internal(ls(envir, all.names, sorted))
+    if (!missing(pattern)) {
+        if ((ll &lt;- length(grep(&quot;[&quot;, pattern, fixed = TRUE))) &amp;&amp; 
+            ll != length(grep(&quot;]&quot;, pattern, fixed = TRUE))) {
+            if (pattern == &quot;[&quot;) {
+                pattern &lt;- &quot;\\[&quot;
+                warning(&quot;replaced regular expression pattern &#39;[&#39; by  &#39;\\\\[&#39;&quot;)
+            }
+            else if (length(grep(&quot;[^\\\\]\\[&lt;-&quot;, pattern))) {
+                pattern &lt;- sub(&quot;\\[&lt;-&quot;, &quot;\\\\\\[&lt;-&quot;, pattern)
+                warning(&quot;replaced &#39;[&lt;-&#39; by &#39;\\\\[&lt;-&#39; in regular expression pattern&quot;)
+            }
+        }
+        grep(pattern, all.names, value = TRUE)
+    }
+    else all.names
+}
+&lt;bytecode: 0x000001fc94ca3858&gt;
+&lt;environment: namespace:base&gt;</code></pre>
+<p>What’s going on here? Like everything in R, <code>ls</code> is the
+name of an object, and entering the name of an object by itself prints
+the contents of the object.</p>
+<p>The object <code>x</code> that we created earlier contains
+1,2,3,4,5:</p>
+<pre class="r"><code>x</code></pre>
+<pre><code>[1] 1 2 3 4 5</code></pre>
+<p>The object <code>ls</code> contains the R code that makes the
+<code>ls</code> function work!</p>
+<p><br></p>
+<p><code>rm</code> deletes objects you no longer need:</p>
+<pre class="r"><code>rm(x)</code></pre>
+<p>If you have lots of things in your environment and want to delete all
+of them, you can <strong>pass</strong> the results of <code>ls</code>
+through the <code>rm</code> function:</p>
+<pre class="r"><code>rm(list = ls())</code></pre>
+<p>Here we’ve combined two functions. Like the order of maths
+operations, anything inside the innermost parentheses is evaluated
+first, and so on.</p>
+<p>In this case we’ve specified that the results of <code>ls</code>
+should be used for the <code>list</code> argument in
+<code>rm</code>.</p>
+<p>Note: When assigning values to arguments by name, you use the
+<code>=</code> operator.</p>
+<p>If instead we use <code>&lt;-</code>, there will be unintended side
+effects, or you may get an error message:</p>
+<pre class="r"><code>rm(list &lt;- ls())</code></pre>
+<pre><code>Error in rm(list &lt;- ls()): ... must contain names or character strings</code></pre>
+<p><br></p>
+<div class="darkorchidbox">
+<div class="center">
+<p><strong>Tip: Warnings vs. Errors</strong></p>
+</div>
+<p>Errors, like above, are thrown when R cannot proceed with a
+calculation. Warnings on the other hand usually mean that the function
+has run, but it probably hasn’t worked as expected.</p>
+<p>In both cases, the message that R prints out can give you clues on
+how to fix a problem.</p>
+</div>
+<p><br></p>
+</div>
+<div id="r-packages" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> R Packages</h2>
+<p>It is possible to add functions to R by installing a package written
+by someone else (or by writing your own package!) As of this writing,
+there are over 18,000 packages available on CRAN (the comprehensive R
+archive network).</p>
+<p>Notable already has lots of packages installed ready for you to use.
+The package tab is where the packages already installed are listed.</p>
+<div class="darkorchidbox">
+<div class="center">
+<p><strong>Tip: Installing packages</strong></p>
+</div>
+<p>To install a package when using R on your own computer either:</p>
+<ul>
+<li>Type <code>install.packages("packagename")</code>, where
+<code>packagename</code> is the package name in quotes.</li>
+<li>Or, under the <strong>Packages</strong> tab, click
+<strong>Install</strong> and type the name of the package.</li>
+</ul>
+<p>Installing a package only needs doing once unless you change the
+computer you are working on.</p>
+</div>
+<p><br></p>
+<p>Once a package is installed, it needs to be <code>library</code>
+loaded before you can use it.</p>
+<p>You can load a package and make it available for use with
+<code>library(packagename)</code>. Load the packages
+<code>ggplot2</code>, <code>penguins</code></p>
+<pre class="r"><code>library(ggplot2)
+library(dplyr)
+library(penguins)</code></pre>
+<p>Move these lines of code to the top of your script since this is
+where coders put them.</p>
+<p><br></p>
+<p><br></p>
+<p><a
+href="https://github.com/acriach/blgy2192_r_teaching">Source</a></p>
+<p>Adapted from <a
+href="https://swcarpentry.github.io/r-novice-gapminder/">R for
+Reproducible Scientific Analysis</a> licensed <a
+href="https://creativecommons.org/licenses/by/4.0/">CC_BY 4.0</a> by <a
+href="https://carpentries.org/">The Carpentries</a></p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
