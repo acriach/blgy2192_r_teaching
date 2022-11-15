@@ -1,0 +1,19 @@
+name: "R and RStudio"
+navbar:
+  left:
+    - text: "Learning R"
+      href: index.html
+    - text: "Get started"
+      href: Get_started.html
+    - text: "Working in R"
+      href: Working_in_R.html
+    - text: "ggplot"
+      href: ggplot.html
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    number_sections: true
+    css: styles.css
+output_dir: "."
