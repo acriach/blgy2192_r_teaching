@@ -97,6 +97,8 @@ To run a block of code, select it and then <kbd>Run</kbd>.
 
 R will print out the answer, with a preceding `[1]`. Don't worry about this. Think of it as merely indicating what line the output is on.
 
+<br>
+
 If you type in an incomplete command, for example: 
 
 ~~~
@@ -290,7 +292,7 @@ One way of answering this question in R is to use the `>` to set up the followin
 ```{r ch3-sol}
 mass > age
 ```
-This should yield a boolean value of TRUE since `r mass` is greater than `r age`.
+This should yield a boolean value of FALSE since `r mass` is not greater than `r age`.
 </details>
 
 <br>
@@ -401,7 +403,6 @@ You can load a package and make it available for use with `library(packagename)`
 
 ```{r ch5-sol, eval=FALSE}
 library(ggplot2)
-library(dplyr)
 library(penguins)
 ```
 

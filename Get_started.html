@@ -434,6 +434,7 @@ To run a block of code, select it and then <kbd>Run</kbd>.</p>
 <p>R will print out the answer, with a preceding <code>[1]</code>. Don’t
 worry about this. Think of it as merely indicating what line the output
 is on.</p>
+<p><br></p>
 <p>If you type in an incomplete command, for example:</p>
 <pre><code>&gt; 1 +</code></pre>
 <p>R will show a <code>+</code> instead of a <code>&gt;</code>. This
@@ -565,7 +566,8 @@ age &lt;- 122</code></pre>
 <code>&gt;</code> to set up the following:</p>
 <pre class="r"><code>mass &gt; age</code></pre>
 <pre><code>[1] FALSE</code></pre>
-This should yield a boolean value of TRUE since 80 is greater than 102.
+This should yield a boolean value of FALSE since 80 is not greater than
+102.
 </details>
 <p><br></p>
 </div>
@@ -615,7 +617,7 @@ instead of listing objects.</p>
     }
     else all.names
 }
-&lt;bytecode: 0x000001fc94ca3858&gt;
+&lt;bytecode: 0x000002a294a3e438&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>What’s going on here? Like everything in R, <code>ls</code> is the
 name of an object, and entering the name of an object by itself prints
@@ -687,7 +689,6 @@ loaded before you can use it.</p>
 <code>library(packagename)</code>. Load the packages
 <code>ggplot2</code>, <code>penguins</code></p>
 <pre class="r"><code>library(ggplot2)
-library(dplyr)
 library(penguins)</code></pre>
 <p>Move these lines of code to the top of your script since this is
 where coders put them.</p>
