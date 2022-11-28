@@ -122,9 +122,10 @@ penguins <- read.csv(file = "data/penguins.csv")
 
 Here we used the function `read.csv` but there are lots of different functions for reading in different types of files. For example `read_excel` in the readxl package. 
 
-(Alternatively, if this doesn't work you can get this penguin R dataset by running the code below.)
+(Alternatively, if this doesn't work, you can get this penguin R dataset by running the code below.)
 
 ```{r, echo = TRUE, eval=FALSE}
+library(palmerpenguins)
 penguins <- palmerpenguins::penguins
 ```
 
