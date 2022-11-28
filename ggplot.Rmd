@@ -33,7 +33,7 @@ penguins <- read.csv(file = "data/penguins.csv")
 There are different plotting systems in R for example,
 the [base plotting system](http://www.sthda.com/english/wiki/r-base-graphs). But the function `ggplot` in the [ggplot2 package](http://www.statmethods.net/advgraphs/ggplot2.html) is used by the majority of people.
 
-To use it the ggplot2 package needs to be installed. Hint: you can check useing the PAckages tab, bottom right window. Then load it using the function `library()` if you haven't already loaded it this R session.
+To use it the ggplot2 package needs to be installed. Hint: you can check using the Packages tab, bottom right window. Then load it using the function `library()` if you haven't already loaded it this R session.
 ```{r, eval = TRUE}
 library(ggplot2)
 ```
@@ -239,6 +239,8 @@ ggplot(data = penguins, mapping = aes(x = species, y = body_mass_g)) +
 
 <br>
 
+### Specify Colour
+
 This graph uses default colours:
 ```{r}
 ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = flipper_length_mm, colour = species)) + 
@@ -294,7 +296,7 @@ ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = bill_depth_mm, gro
 ## Exporting plots
 
 The `ggsave()` function allows you to export a plot created with ggplot. You can specify the dimension and resolution of your plot by adjusting the appropriate arguments (`width`, `height` and `dpi`) to create high quality graphics for reports.  
-In order to save this plot (which has trendlines and different symbols for each species), we first assign it to a variable, we could call it `penguin_plot`:
+In order to save this plot (which has trendlines and different symbols for each species), we first assign it to an object, we could call it `penguin_plot`:
 
 ```{r save}
 penguin_plot <- ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = bill_depth_mm, colour = species, grouped = species)) + 
